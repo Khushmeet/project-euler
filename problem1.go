@@ -9,14 +9,15 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 import "fmt"
 
+func divByN(n, target int64) int64  {
+    var p int64 = target/n
+    return n*(p*(p+1))/2
+}
+
 func main() {
-	var sum = 0
+	var target int64 = 1000
 
-	for i := 0; i < 1000; i++ {
-		if i%3 == 0 || i%5 == 0 {
-			sum = sum + i
-		}
-	}
+    output := divByN(3, target) + divByN(5, target) - divByN(15, target)
 
-	fmt.Println("Sum is :", sum)
+	fmt.Println("Sum is :", output)
 }
